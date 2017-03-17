@@ -1,0 +1,215 @@
+/* General */
+
+	/* CSS vars */
+		:root {
+			/* Base colors */
+			--color-purple: #5C2D91;
+			--color-purple-light: #DBDAE8;
+			--color-white: #FFFFFF;
+			--color-black: #000000;
+		}
+
+	body, p{
+		padding: 0;
+		border: 0;
+		margin: 0;
+	}
+
+	*{
+		font-family: Gotham, Arial, Verdana, 'sans-serif';
+	}
+
+	body{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		min-height: 100vh;
+		// width: 100vw;
+	}
+
+/* Header */
+
+	.Header{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+			-ms-flex-pack: center;
+				justify-content: center;
+		padding: 0 32px;
+		padding: 0 2rem;
+		height: 50px;
+		background-color: var(--color-purple);
+		background-color: #5C2D91;
+	}
+
+	.Header img, .Header a{
+		height: 30px;
+	}
+
+/* Container */ 
+
+	.Container{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-flex: 1;
+		    -ms-flex: 1;
+		        flex: 1;
+		padding: 16px;
+		padding: 1rem;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		background-color: var(--color-purple-light);
+		background-color: #DBDAE8;
+	}
+
+	/* Player */
+
+		.Player{
+			-webkit-box-flex: 1;
+			    -ms-flex: 4 617px;
+			        flex: 4 617px;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			margin: 16px;
+			margin: 1rem;
+		}
+
+		.Player #ooyala_player{
+			width: 100%;
+			min-width: 100%;
+		}
+
+	/* Playlist */
+		
+		#playlist{
+			position: relative;
+		}
+
+		.Playlist{
+			-webkit-box-flex: 1;
+			    -ms-flex: 1 0 300px;
+			        flex: 1 0 300px;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
+			max-width: 100%;
+			-ms-flex-item-align: stretch;
+			    align-self: stretch;
+			// overflow: scroll;	
+		}
+
+		.Playlist-header{
+			font-size: 24px;
+			font-size: 1.5rem;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;	
+			border-bottom: 2px solid var(--color-purple);
+			border-bottom: 2px solid #5C2D91;
+			margin: 16px 16px 8px 16px;
+			margin: 1rem 1rem .5rem 1rem;
+			padding-bottom: 16px;
+			padding-bottom: 1rem;
+		}
+
+		.Playlist-assets{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
+			position: relative;
+		}
+
+		.Playlist-asset{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			padding: 16px;
+			padding: 1rem;
+			min-height: 78px;
+			cursor: pointer;
+			-webkit-transition: all .3s ease;
+			transition: all .3s ease;
+			border-bottom: 1px solid var(--color-white);
+			border-bottom: 1px solid #FFFFFF;
+		}
+
+		// .Playlist-asset:hover, .Playlist-asset.active{
+		// 	background-color: var(--color-purple);
+		// 	background-color: #5C2D91;
+		// 	color: var(--color-white);
+		// 	color: #FFFFFF;
+		// }
+
+		.Playlist-asset-image{
+			-webkit-box-flex: 0;
+			    -ms-flex: 0 1 140px;
+			        flex: 0 1 140px;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+
+		.Playlist-asset-image img{
+			max-width: 100%;
+			box-shadow: 4px 4px 8px rgba(0,0,0,.5);
+		}
+
+		.Playlist-asset-info{
+			-webkit-box-flex: 1;
+			    -ms-flex: 1 200px;
+			        flex: 1 200px;
+			padding: 8px 16px;
+			padding: .5rem 1rem;
+		}
+
+/* Footer */
+
+	.Footer{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		padding: 0 16px;
+		padding: 0 1rem;
+		height: 50px;
+		background-color: var(--color-purple);
+		background-color: #5C2D91;		
+		-webkit-box-pack: center;		
+		    -ms-flex-pack: center;		
+		        justify-content: center;
+	}
+
+	.Footer a{
+		color: var(--color-white);
+		color: #FFFFFF;
+		text-decoration: none;
+	}

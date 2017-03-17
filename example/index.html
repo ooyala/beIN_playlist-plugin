@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="./favicon.ico">
+	<title>beIN SPORTS</title>
+
+	<!-- Player css -->
+		<link rel="stylesheet" href="http://player.ooyala.com/static/v4/stable/latest/skin-plugin/html5-skin.min.css">	
+		
+	<!-- beIN css -->
+		<link rel="stylesheet" href="./css/animate.css" />
+		<link rel="stylesheet" href="./css/spinner.css" />
+		<link rel="stylesheet" href="./css/beinsports.css" />
+</head>
+<body>
+	<!-- Header -->
+		<header class="Header">
+			<a href="http://www.beinsports.com/us-es/"><img src="./images/logo-header__en.svg" alt="beIN SPORTS"></a>
+		</header>
+	
+	<!-- Container -->
+		<section class="Container">
+				<!-- Player -->
+					<section class="Player">
+						<div id="ooyala_player"></div>
+					</section>
+				<!-- Playlist -->
+					<section class="Playlist">
+						<div id="playlist">
+							<!-- Loading spinner -->
+								<div id="spinner" class="spinner animated">
+								  	<div class="bounce1"></div>
+								  	<div class="bounce2"></div>
+								  	<div class="bounce3"></div>
+								</div>
+
+							<!-- Here's where assets are appended -->
+						</div>
+					</section>
+		</section>
+	
+	<!-- Footer -->
+		<footer class="Footer">
+			<a target="_blank" href="http://www.beinsports.com/us/videos">Más vídeos de LaLiga en beIN</a>
+		</footer>
+
+	<!-- Player scripts -->
+		<script src="http://player.ooyala.com/static/v4/stable/latest/core.min.js"></script>
+		<script src="http://player.ooyala.com/static/v4/stable/latest/video-plugin/main_html5.min.js"></script>
+		<script src="http://player.ooyala.com/static/v4/stable/latest/skin-plugin/html5-skin.min.js"></script>
+		<script src="https://player.ooyala.com/static/v4/stable/latest/ad-plugin/google_ima.min.js"></script>
+		<script src="./js/ve_playlistPlugin.js"></script>
+	
+	<!-- beIN scripts -->		
+		<script src="./js/beinsports.js"></script>
+</body>
+</html>
