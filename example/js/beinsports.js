@@ -31,6 +31,8 @@ var playerParam = {
 		},
 		color: '#5C2D91'
 	},
+	//force MAX_BITRATE
+	"initialBitrate": { "level": 1, "duration": 1000 },
 	carousel: true,
 	loop: true,
 	useFirstVideoFromPlaylist: true,
