@@ -19,6 +19,10 @@
 		font-family: Gotham, Arial, Verdana, 'sans-serif';
 	}
 
+	html{
+		height: 100%;
+	}
+
 	body{
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -28,8 +32,8 @@
 		    -ms-flex-direction: column;
 		        flex-direction: column;
 		min-height: 450px;
-		max-height: 100vh;
-		height: 100vh;
+		max-height: 100%;
+		height: 100%;
 	}
 
 /* Header */
