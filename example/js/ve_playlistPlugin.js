@@ -190,7 +190,7 @@ function PlaylistPlugin(mb) {
         if (!object) {
             return;
         }
-        JSON.stringify(object);//Will throw a TypeError exception if it detects any.
+        JSON.stringify(object);//Will throw a TypeError exception if it detects any circular references.
         Object.keys(object).forEach(k => {
             if (!Array.isArray(target[k]) && typeof target[k] === "object") {
                 deepAssign(target[k], object[k]);   //deep copy
@@ -212,12 +212,7 @@ function Playlist(elementId, styles, highlightActive, onItemClick, color) {
         // Playlist container
         var playlistElement = document.getElementById(elementId);
         playlistElement.className = styles.container;
-        // Playlist title
-        var playlistTitle = document.createElement('div');
-        playlistTitle.className = styles.title;
-        playlistTitle.innerHTML = playlist.name;
-        playlistElement.appendChild(playlistTitle);
-
+       
         playlist.items.forEach((asset, index) => {
 
             var activeClass = '';
