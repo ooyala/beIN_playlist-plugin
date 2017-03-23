@@ -15,6 +15,7 @@ function PlaylistPlugin(mb) {
             'info': 'oo-playlist-item-info',
         },
         color: '#CCCCCC',
+        highlightTextColor: '#FFFFFF',
         autoplay: true,
         loop: false,
         useFirstVideoFromPlaylist: false
@@ -83,7 +84,7 @@ function PlaylistPlugin(mb) {
                         if (config.useFirstVideoFromPlaylist) {
                             mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[0].embed_code);
                         }
-                        playlist = new Playlist(config.elementId, config.customCssClasses, config.highlightActive, onItemClick, config.color);
+                        playlist = new Playlist(config.elementId, config.customCssClasses, config.highlightActive, onItemClick, config.color, config.highlightTextColor);
                         playlist.render(playlistData, config.useFirstVideoFromPlaylist);
                     }).catch(console.error);
                 } else {
@@ -190,7 +191,7 @@ function PlaylistPlugin(mb) {
         if (!object) {
             return;
         }
-        JSON.stringify(object);//Will throw a TypeError exception if it detects any.
+        JSON.stringify(object);//Will throw a TypeError exception if it detects any circular references.
         Object.keys(object).forEach(k => {
             if (!Array.isArray(target[k]) && typeof target[k] === "object") {
                 deepAssign(target[k], object[k]);   //deep copy
@@ -203,7 +204,7 @@ function PlaylistPlugin(mb) {
     self.init();
 }
 
-function Playlist(elementId, styles, highlightActive, onItemClick, color) {
+function Playlist(elementId, styles, highlightActive, onItemClick, color, highlightTextColor) {
     var self = this;
 
     self.render = function (playlist, useFirstVideoFromPlaylist, activeItemIndex = 0) {
@@ -212,12 +213,7 @@ function Playlist(elementId, styles, highlightActive, onItemClick, color) {
         // Playlist container
         var playlistElement = document.getElementById(elementId);
         playlistElement.className = styles.container;
-        // Playlist title
-        var playlistTitle = document.createElement('div');
-        playlistTitle.className = styles.title;
-        playlistTitle.innerHTML = playlist.name;
-        playlistElement.appendChild(playlistTitle);
-
+       
         playlist.items.forEach((asset, index) => {
 
             var activeClass = '';
@@ -231,16 +227,19 @@ function Playlist(elementId, styles, highlightActive, onItemClick, color) {
                 // item is active
                 activeClass = 'active';
                 item.style.backgroundColor = color;
+                item.style.color = highlightTextColor;
             }
             item.className = `${styles.item} ${activeClass}`;
 
             // Playlist item events
             item.addEventListener('mouseover', (e) => {
                 item.style.backgroundColor = color;
+                item.style.color = highlightTextColor;
             });
             item.addEventListener('mouseout', (e) => {
                 if (item.className.indexOf('active') === -1) {
                     item.style.backgroundColor = 'inherit';
+                    item.style.color = 'initial';
                 }
             });
             item.addEventListener('click', (e) => {
@@ -283,10 +282,12 @@ function Playlist(elementId, styles, highlightActive, onItemClick, color) {
         if (prevActive) {
             prevActive.className = styles.item;
             prevActive.style.backgroundColor = 'inherit';
+            prevActive.style.color = 'initial';
         }
         var nextActive = document.getElementsByClassName(styles.item)[index];
         nextActive.className = `${styles.item} active`;
         nextActive.style.backgroundColor = color;
+        nextActive.style.color = highlightTextColor;
     }
 }
 var css = `
