@@ -82,7 +82,7 @@ function PlaylistPlugin(mb) {
                             config.onLoad();
                         }
                         if (config.useFirstVideoFromPlaylist) {
-                            mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[0].embed_code);
+                            mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[0].embed_code,config);
                         }
                         playlist = new Playlist(config.elementId, config.customCssClasses, config.highlightActive, onItemClick, config.color, config.highlightTextColor);
                         playlist.render(playlistData, config.useFirstVideoFromPlaylist);
@@ -116,13 +116,13 @@ function PlaylistPlugin(mb) {
         if (config.autoplay) {
             currentItemIndex++;
             if (currentItemIndex < playlistData.items.length) {
-                mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[currentItemIndex].embed_code);
+                mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[currentItemIndex].embed_code, config);
                 if (config.highlightActive) {
                     playlist.setHighlightItem(currentItemIndex);
                 }
             } else if (config.loop) {
                 currentItemIndex = 0;
-                mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[currentItemIndex].embed_code);
+                mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[currentItemIndex].embed_code, config);
                 if (config.highlightActive) {
                     playlist.setHighlightItem(currentItemIndex);
                 }
@@ -132,7 +132,7 @@ function PlaylistPlugin(mb) {
 
     function onItemClick(item, index) {
         currentItemIndex = index;
-        mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[currentItemIndex].embed_code);
+        mb.publish(OO.EVENTS.SET_EMBED_CODE, playlistData.items[currentItemIndex].embed_code, config);
         if (config.onItemClick) {
             config.onItemClick(item, index);
         }
